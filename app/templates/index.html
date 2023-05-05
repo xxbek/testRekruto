@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1><tb>Передай сообщение, используя форму: </h1>
+
+<form style="text-align:center;">
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}<br>
+        {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.message.label }}<br>
+        {{ form.message(size=32) }}<br>
+        {% for error in form.message.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+<hr>
+<h2 style="text-align:center;font-size: 400%;">{% if name %}{{ name }}{% else %}Рекруто{% endif %}! <br>
+        {% if message %}{{ message }} {% else %} Давай дружить! {% endif %}</h2>
+
+{% endblock %}
